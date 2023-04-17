@@ -1,0 +1,34 @@
+<div style="height: 50px">
+  <app-alert></app-alert>
+</div>
+
+<div class="form-group">
+  <input
+    #searchClientsInput
+    type="text"
+    class="form-control"
+    placeholder="Search Clients"
+  />
+</div>
+
+<ag-grid-angular
+  style="width: 100%; height: 750px; margin-top: 10px"
+  class="ag-theme-alpine"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [rowSelection]="'single'"
+  [animateRows]="true"
+  (cellClicked)="onCellClicked($event)"
+  [gridOptions]="gridOptions"
+  (gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>
+
+<button
+  class="btn btn-primary mb-3"
+  style="margin-top: 10px"
+  type="button"
+  (click)="viewClientDetails()"
+>
+  View Selected Client
+</button>
